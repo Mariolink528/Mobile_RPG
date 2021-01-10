@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MobileRPG Resources/Images/Mobile RPG Mockup.png" type="Texture" id=1]
 [ext_resource path="res://Battle.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Default_Theme.tres" type="Theme" id=6]
 [ext_resource path="res://Panel9Frame.tres" type="StyleBox" id=7]
 [ext_resource path="res://Stats_Panel.gd" type="Script" id=8]
+[ext_resource path="res://FightActionButton.tscn" type="PackedScene" id=9]
 
 [node name="Battle" type="Node"]
 script = ExtResource( 2 )
@@ -47,66 +48,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Attack_Button" type="Button" parent="UI/BattleActionButtons"]
-margin_right = 32.0
-margin_bottom = 13.0
-rect_min_size = Vector2( 32, 13 )
-text = "Attack"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Test_Button" type="Button" parent="UI/BattleActionButtons"]
-margin_left = 37.0
-margin_right = 69.0
-margin_bottom = 13.0
-rect_min_size = Vector2( 32, 13 )
-text = "Test"
-
-[node name="Test_Button2" type="Button" parent="UI/BattleActionButtons"]
-margin_top = 16.0
-margin_right = 32.0
-margin_bottom = 29.0
-rect_min_size = Vector2( 32, 13 )
-text = "Test"
-
-[node name="Test_Button3" type="Button" parent="UI/BattleActionButtons"]
-margin_left = 37.0
-margin_top = 16.0
-margin_right = 69.0
-margin_bottom = 29.0
-rect_min_size = Vector2( 32, 13 )
-text = "Test"
-
-[node name="Test_Button4" type="Button" parent="UI/BattleActionButtons"]
-margin_top = 32.0
-margin_right = 32.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 32, 13 )
-text = "Test"
-
-[node name="Test_Button5" type="Button" parent="UI/BattleActionButtons"]
-margin_left = 37.0
-margin_top = 32.0
-margin_right = 69.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 32, 13 )
-text = "Test"
-
-[node name="Test_Button6" type="Button" parent="UI/BattleActionButtons"]
-margin_top = 48.0
-margin_right = 32.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 32, 13 )
-text = "Test"
-
-[node name="Test_Button7" type="Button" parent="UI/BattleActionButtons"]
-margin_left = 37.0
-margin_top = 48.0
-margin_right = 69.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 32, 13 )
-text = "Test"
+[node name="FightActionButton" parent="UI/BattleActionButtons" instance=ExtResource( 9 )]
 
 [node name="Stats_Panel" type="Panel" parent="UI"]
 margin_left = 3.0
@@ -170,4 +112,3 @@ __meta__ = {
 [connection signal="HP_Changed" from="PlayerStats" to="UI/Stats_Panel" method="_on_PlayerStats_HP_Changed"]
 [connection signal="MP_Changed" from="PlayerStats" to="UI/Stats_Panel" method="_on_PlayerStats_MP_Changed"]
 [connection signal="Died" from="Enemy" to="." method="_on_Enemy_Died"]
-[connection signal="pressed" from="UI/BattleActionButtons/Attack_Button" to="." method="_on_Attack_Button_pressed"]

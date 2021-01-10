@@ -6,11 +6,6 @@ onready var Enemy = $Enemy
 func _ready():
 	start_player_turn()
 
-func _on_Attack_Button_pressed():
-	var Enemy = find_node("Enemy")
-	if Enemy != null:
-		Enemy.take_damage(4)
-		PlayerStats.AP -= 1
 
 func start_enemy_turn():
 	BattleActionButtons.hide()
