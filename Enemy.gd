@@ -1,5 +1,7 @@
 extends Node2D
 
+const BattleUnits = preload("res://BattleUnits.tres")
+
 var target = null
 
 var HP = 20 setget set_HP
@@ -40,6 +42,10 @@ func is_dead():
 
 
 
-
+func _ready():
+	BattleUnits.Enemy = self
+	
+func _exit_tree():
+	BattleUnits.Enemy = null
 
 
