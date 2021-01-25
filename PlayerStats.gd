@@ -30,7 +30,7 @@ func set_MP(value):
 	emit_signal("MP_Changed", MP)
 
 func _ready():
-	BattleUnits.Player = self
+	BattleUnits.PlayerStats = self
 	
 func _exit_tree():
-	BattleUnits.Player = null
+	BattleUnits.PlayerStats = null

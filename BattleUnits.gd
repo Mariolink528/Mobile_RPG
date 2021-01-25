@@ -1,5 +1,5 @@
 extends Resource
 class_name BattleUnits
 
-var Player = null
+var PlayerStats = null
 var Enemy = null

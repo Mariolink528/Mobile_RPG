@@ -18,12 +18,10 @@ func set_HP(new_HP):
 	
 
 
-func attack(target) -> void:
+func attack() -> void:
 	yield(get_tree().create_timer(0.4), "timeout")
 	Animation_Player.play("Attack")
-	self.target = target
 	yield(Animation_Player, "animation_finished")
-	self.target = null
 	emit_signal("end_turn")
 
 func take_damage(amount):
@@ -34,8 +32,8 @@ func take_damage(amount):
 	else:
 		Animation_Player.play("Shake")
 func deal_damage():
-	self.target.HP -= 4
-	print("Deal_damage")
+	BattleUnits.PlayerStats.HP -= 4
+
 
 func is_dead():
 	return HP <= 0
