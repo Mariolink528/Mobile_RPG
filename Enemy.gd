@@ -2,9 +2,9 @@ extends Node2D
 
 const BattleUnits = preload("res://BattleUnits.tres")
 
-var target = null
 
-var HP = 20 setget set_HP
+export(int) var HP = 20 setget set_HP
+export(int) var damage = 4
 
 onready var HP_Label = $HP_Label
 onready var Animation_Player = $AnimationPlayer
@@ -14,7 +14,8 @@ signal end_turn
 
 func set_HP(new_HP):
 	HP = new_HP
-	HP_Label.text = str(HP) + "hp"
+	if HP_Label != null:
+		HP_Label.text = str(HP) + "hp"
 	
 
 
@@ -32,7 +33,7 @@ func take_damage(amount):
 	else:
 		Animation_Player.play("Shake")
 func deal_damage():
-	BattleUnits.PlayerStats.HP -= 4
+	BattleUnits.PlayerStats.HP -= damage
 
 
 func is_dead():
